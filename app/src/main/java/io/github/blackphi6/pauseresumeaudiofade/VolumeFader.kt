@@ -27,16 +27,22 @@ class VolumeFader(
     private var job: Job? = null
     private var restoreIndex: Int? = null
 
-    fun fadeOut(durationMs: Long = FADE_OUT_MS) {
+    fun fadeOut(durationMs: Long) {
         job?.cancel()
         val from = restoreIndex ?: controller.currentIndex
         restoreIndex = from
         job = scope.launch { runFade(from, controller.minIndex, durationMs) }
     }
 
-    fun fadeIn(durationMs: Long = FADE_IN_MS) {
+    /**
+     * 直前に自分でフェードアウトした記録（restoreIndex）がある時だけ、そこまで戻す。
+     * 記録がないのに最大音量などへ「フォールバック」してはいけない——Bluetoothイヤホン接続時など、
+     * こちらが一時停止を捉えていないのに再生イベントだけ飛んでくるケースがあり、そこで音量を
+     * 動かすと現在の音量を無視して爆音になる事故につながる。何もしないのが安全な既定動作。
+     */
+    fun fadeIn(durationMs: Long) {
+        val to = restoreIndex ?: return
         job?.cancel()
-        val to = restoreIndex ?: controller.maxIndex
         job = scope.launch {
             runFade(controller.currentIndex, to, durationMs)
             restoreIndex = null
@@ -56,10 +62,6 @@ class VolumeFader(
         }
     }
 
-    companion object {
-        const val FADE_OUT_MS = 260L
-        const val FADE_IN_MS = 300L
-    }
 }
 
 /** from から to まで、1ステップずつ辿るインデックス列。純粋関数なのでコルーチン抜きでテストできる */
