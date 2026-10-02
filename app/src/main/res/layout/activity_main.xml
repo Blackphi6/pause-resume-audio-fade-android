@@ -24,6 +24,30 @@
         android:id="@+id/openSettingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/open_settings" />
+        android:text="@string/open_settings"
+        android:layout_marginBottom="40dp" />
+
+    <TextView
+        android:id="@+id/fadeOutLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <SeekBar
+        android:id="@+id/fadeOutSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="800"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/fadeInLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <SeekBar
+        android:id="@+id/fadeInSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="1000" />
 
 </LinearLayout>

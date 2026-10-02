@@ -23,6 +23,7 @@ class FadeNotificationListenerService : NotificationListenerService() {
     private lateinit var mediaSessionManager: MediaSessionManager
     private lateinit var fader: VolumeFader
     private lateinit var componentName: ComponentName
+    private lateinit var preferences: Preferences
 
     private val sessionsChangedListener =
         MediaSessionManager.OnActiveSessionsChangedListener { controllers ->
@@ -35,6 +36,7 @@ class FadeNotificationListenerService : NotificationListenerService() {
         mediaSessionManager = getSystemService(MediaSessionManager::class.java)
         val audioManager = getSystemService(AudioManager::class.java)
         fader = VolumeFader(AndroidVolumeController(audioManager), scope)
+        preferences = Preferences(this)
 
         mediaSessionManager.addOnActiveSessionsChangedListener(sessionsChangedListener, componentName)
         rebindControllers(mediaSessionManager.getActiveSessions(componentName))
@@ -63,8 +65,8 @@ class FadeNotificationListenerService : NotificationListenerService() {
 
     private fun handleStateChange(state: PlaybackState?) {
         when (state?.state) {
-            PlaybackState.STATE_PLAYING -> fader.fadeIn()
-            PlaybackState.STATE_PAUSED, PlaybackState.STATE_STOPPED -> fader.fadeOut()
+            PlaybackState.STATE_PLAYING -> fader.fadeIn(preferences.fadeInMs)
+            PlaybackState.STATE_PAUSED, PlaybackState.STATE_STOPPED -> fader.fadeOut(preferences.fadeOutMs)
             else -> Unit
         }
     }
