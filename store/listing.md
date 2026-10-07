@@ -5,7 +5,7 @@
 - メール: （Play Console に登録した連絡先）
 - プライバシーポリシーURL: https://github.com/Blackphi6/pause-resume-audio-fade-android/blob/main/PRIVACY.md
 
-## 日本語（既定の言語）
+## 日本語（翻訳として追加）
 
 ### 簡単な説明（80文字まで）
 
@@ -42,7 +42,7 @@
 https://github.com/Blackphi6/pause-resume-audio-fade
 ```
 
-## English
+## English（既定の言語 = en-US）
 
 ### Short description (80 chars max)
 

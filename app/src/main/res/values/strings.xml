@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pause Resume Audio Fade</string>
-    <string name="status_enabled">有効: 一時停止・再開に合わせて音量をフェードします</string>
-    <string name="status_disabled">無効: 下のボタンから通知へのアクセスを許可してください</string>
-    <string name="explanation">どのアプリの音楽・動画でも、一時停止/再開のタイミングで端末の音量をなめらかにフェードさせます。通知へのアクセス許可（通知の中身は読みません）が必要です。</string>
-    <string name="open_settings">通知へのアクセスを設定</string>
-    <string name="fade_out_label">フェードアウト（一時停止）: %1$dms</string>
-    <string name="fade_in_label">フェードイン（再開）: %1$dms</string>
+    <string name="status_enabled">On: volume fades when playback pauses or resumes</string>
+    <string name="status_disabled">Off: allow notification access with the button below</string>
+    <string name="explanation">Smoothly fades your device\'s media volume when music or video pauses or resumes, in any app. Requires notification access (the content of your notifications is never read).</string>
+    <string name="open_settings">Set up notification access</string>
+    <string name="fade_out_label">Fade out (pause): %1$dms</string>
+    <string name="fade_in_label">Fade in (resume): %1$dms</string>
 </resources>
