@@ -2,6 +2,8 @@
 
 一時停止/再開のたびに音がぶつっと切れたり急に戻ったりするのを、短いフェードでやわらげるAndroidアプリ。
 
+公式サイト（聞き比べのデモ付き）: https://blackphi6.github.io/pause-resume-audio-fade/
+
 姉妹プロジェクト:
 - [Chrome/Firefox拡張機能](https://github.com/Blackphi6/pause-resume-audio-fade)
 - [macOSメニューバーアプリ](https://github.com/Blackphi6/pause-resume-audio-fade-mac)
